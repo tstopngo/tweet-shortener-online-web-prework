@@ -7,13 +7,16 @@ end
   
 def word_substituter(tweet)
   # replaces long words with their expected short form
-    tweet.split(" ").map do |word| #creates the array of tweet words and iterates over each word
-      if dictionary.keys.include?(word.downcase) #on the iteration, checks if dictionary includes tweet word  which is also downcased
-        word = dictionary[word.downcase] #if the condition is met the tweet word local variable gets assigned to the dictionary key
+    tweet_array = []
+    tweet.split(" ").map do |word|
+      if dictionary.keys.include?(word.downcase)
+        word = dictionary[word.downcase]
       else
-        word #if condition is not met return the word to the array
-    end
-  end.join(" ")
+        word
+    end 
+    tweet_array << word 
+  end
+  tweet_array.join(" ")
 end
 
 def bulk_tweet_shortener(tweets)
