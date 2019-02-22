@@ -8,7 +8,7 @@ end
 def word_substituter(tweet)
   # replaces long words with their expected short form
     tweet_array = []
-    tweet.split(" ").map do |word|
+    tweet.split(" ").each do |word|
       if dictionary.keys.include?(word.downcase)
         word = dictionary[word.downcase]
       else
